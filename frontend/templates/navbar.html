@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="navbar-header">
+        <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="./">Serverlein Updates</a>
+    </div>
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+            <!--<li class="">
+              <a href="./">Account</a>
+            </li>
+            <li class="active">
+              <a href="inverse.html">Projekte</a>
+            </li>-->
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Projekte <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li class="{..AddProjektClass..}"><a href="index.php?page=AddProjekt"><i class="fa fa-plus" aria-hidden="true"></i> Projekt hinzufügen</a></li>
+                    {..Projekte..}
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Account <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li class="{..EinstellungenClass..}"><a href="index.php?page=Einstellungen"><i class="fa fa-cogs" aria-hidden="true"></i> Einstellungen</a></li>
+                    <li><a href="index.php?page=logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

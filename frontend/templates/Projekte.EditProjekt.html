@@ -1,0 +1,99 @@
+
+<div style="padding-top:10px;">
+    
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Projekt bearbeiten</h3>
+        </div>
+        <div class="panel-body">
+            
+            <h2>Allgemeines</h2>
+            <hr>
+            
+            <table id="tbl_editProjekt">
+                <tr>
+                    <td>Projektname:</td>
+                    <td><input type="text" id="projektname" class="form-control" placeholder="example Projekt" value="{..ProjektName..}"></td>
+                </tr>
+                <tr>
+                    <td>Projektbeschreibung:</td>
+                    <td><input type="text" id="projektbeschreibung" class="form-control" placeholder="example Beschreibung" value="{..ProjektDesc..}"></td>
+                </tr>
+                <tr>
+                    <td>Aktuelle Version:</td>
+                    <td><input type="text" id="projektversion" readonly class="form-control" placeholder="1.0.0.4" value="{..ProjektVersion..}"></td>
+                </tr>
+                <tr>
+                    <td>Erstellt:</td>
+                    <td><input type="text" readonly id="projekterstellt" class="form-control" placeholder="example Version" value="{..ProjektErstellt..}"></td>
+                </tr>
+                <tr>
+                    <td>Öfftl. Downloadlink:</td>
+                    <td>
+                        <input type="text" style="width:250px; float:left;" readonly id="projektlink" class="form-control" placeholder="" value="{..ProjektLink..}">
+                        <button type="button" class="btn btn-default tooltipster" id="copyClipboard" title="In den Zwischenspeicher kopieren"><i class="fa fa-clipboard" aria-hidden="true"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Öfftl. Versionslink:</td>
+                    <td>
+                        <input type="text" style="width:250px; float:left;" readonly id="projektversionlink" class="form-control" placeholder="" value="{..VersionsLink..}">
+                        <button type="button" class="btn btn-default tooltipster" id="copyLinkClipboard" title="In den Zwischenspeicher kopieren"><i class="fa fa-clipboard" aria-hidden="true"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button type="button" class="btn btn-danger" id="btn_projektdelete">Projekt löschen</button>
+                        <button type="button" class="btn btn-default" id="btn_projektSpeichern">Speichern</button>
+                        <input type="hidden" id="projektid" value="{..ProjektID..}">
+                    </td>
+                </tr>
+            </table>
+            
+            
+            
+            
+            <h2>Neue Version hochladen</h2>
+            <hr>
+            
+            <div class="form-upload" style="width:250px;">
+                <form action="ajax/upload.php" method="post" enctype="multipart/form-data" >
+                    <input class="" name="file" type="file" id="fileA" onchange="fileChange();"/>
+                    <input class="form-control" name="version" type="text" id="version" placeholder="1.0.0.5" value="{..ProjektVersion..}"/>
+                    <textarea id="changes" class="form-control" placeholder="Änderungen..." style="width:500px; height:250px;"></textarea><br>
+                    <input type="hidden" id="pid" value="{..ProjektID..}">
+                    <input class="btn btn-default" name="upload" id="btnUpload" value="Upload" type="button" onclick="uploadFile();" />
+                    <input class="btn btn-default" name="abort" id="btnAbort" value="Abbrechen" type="button" onclick="uploadAbort();" />
+                </form>
+            </div>
+            <div style="display:none;">
+                <div id="fileName"></div>
+                <div id="fileSize"></div>
+                <div id="fileType"></div>
+            </div>
+            <div id="uploading-status" style="display:none;">
+                <progress id="progress" style="margin-top:10px; width:100%; " value="0"></progress> <span id="prozent"></span>
+            </div>
+            
+            <h2>Versionshistorie</h2>
+            <hr>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Datei</th>
+                        <th>Version</th>
+                        <th>Größe</th>
+                        <th>Hochgeladen</th>
+                        <th>Aktion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {..VersionTbody..}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</div>
+
+<div id="modalPlaceholder"></div>

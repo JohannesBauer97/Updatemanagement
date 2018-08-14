@@ -1,0 +1,19 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 28.02.2017, 17:10:21
+    Author     : w4ter
+*/
+
+#tbl_changepassword tr td{
+    text-align: right;
+    padding-right:10px;
+    padding-bottom:10px;
+}
+
+#tbl_changepassword tr td input{
+    width:300px;
+}
